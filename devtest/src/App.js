@@ -1,10 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import PropTypes from 'prop-types'
+import ErrorBund from "./ErrorBund";
 function Button(props){
-  
-  return <button>{props.label}</button>
+  const [counter, setCounter]= useState(0);
+  function handleClick(){
+    setCounter(counter+1);
+  }
+  if(counter===5){
+    throw new Error('za duza ilosc');
+  }
+  return  <button onClick={handleClick}>
+              {props.label} {counter}
+          </button>
 }
+
 function User({firstName,lastName,email  }){
   return(
     <div>
@@ -30,13 +40,16 @@ function App() {
   
   return (
     <div className="App">
+    <ErrorBund>
+    <Button />
       {users && users.map((user)=> 
         <User key={user.login.uuid}
           firstName={user.name.first}
           lastName={user.name.last}
-          email={true}
+          email={user.email}
         />)}
-      <Button />
+      
+    </ErrorBund>
     </div>
   );
 }
