@@ -2,18 +2,8 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import PropTypes from 'prop-types'
 import ErrorBund from "./ErrorBund";
-function Button(props){
-  const [counter, setCounter]= useState(0);
-  function handleClick(){
-    setCounter(counter+1);
-  }
-  if(counter===5){
-    throw new Error('za duza ilosc');
-  }
-  return  <button onClick={handleClick}>
-              {props.label} {counter}
-          </button>
-}
+//import renderer from 'react-test-renderer';
+import Button from "./components/Button";
 
 function User({firstName,lastName,email  }){
   return(
@@ -42,12 +32,12 @@ function App() {
     <div className="App">
     <ErrorBund>
     <Button />
-      {users && users.map((user)=> 
+     { /* {users && users.map((user)=> 
         <User key={user.login.uuid}
           firstName={user.name.first}
           lastName={user.name.last}
           email={user.email}
-        />)}
+        />)} */}
       
     </ErrorBund>
     </div>
