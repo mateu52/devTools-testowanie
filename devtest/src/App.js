@@ -5,47 +5,40 @@ import ErrorBund from "./ErrorBund";
 //import renderer from 'react-test-renderer';
 import Button from "./components/Button";
 
-function User({firstName,lastName,email  }){
-  return(
-    <div>
-      <h2>{firstName} {lastName}</h2>
-      <p>{email}</p>
-    </div>
-    )
+function Sum(){
+  const [a, setA ]= useState();
+  const [b, setB ] = useState();
+  const [c, setC] = useState();
+  const handleSum=(event)=>{
+    event.preventDefault();
+    setC(parseInt(a)+parseInt(b));
+    console.log({a,b});
+  }
+  const handleClick=(event)=> {
+    if(event.target.name==="aaaa"){
+      setA(event.target.value);
+    }
+    if(event.target.name==="bbbb"){
+      setB(event.target.value);
+    }
+  }
+  return (
+    <form onSubmit={handleSum}>
+      <input type="number" name="aaaa" onChange={handleClick} />
+      <input type="number" name="bbbb" onChange={handleClick} />
+      <input type="submit"  onClick={handleSum}/>
+    </form>
+  )
 }
-User.propTypes = {
-  firstName : PropTypes.string.isRequired,
-  lastName : PropTypes.string.isRequired,
-  email: PropTypes.string
-}
+
 function App() {
-  const [users, setUsers] = useState([]);
-  
-  useEffect(()=>{
-    fetch('https://randomuser.me/api/?results=10')
-    .then(response=>response.json())
-    .then(data=>setUsers(data.results))
-    .catch(error=>console.log(error));
-  },[])
+
   
   return (
     <div className="App">
-    <ErrorBund>
-    <Button />
-     { /* {users && users.map((user)=> 
-        <User key={user.login.uuid}
-          firstName={user.name.first}
-          lastName={user.name.last}
-          email={user.email}
-        />)} */}
-      
-    </ErrorBund>
+      {Sum()}
     </div>
   );
 }
-Button.defaultProps={
-  label: 'OK'
-}
-
 
 export default App;
