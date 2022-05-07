@@ -1,6 +1,8 @@
 import React from "react";
 import Sum from "./Sum";
 import renderer from 'react-test-renderer';
+ //import ShallowRenderer from 'react-test-renderer/shallow';
+
 
 it('renders ok', () => {
     const tree = renderer
@@ -10,11 +12,9 @@ it('renders ok', () => {
 })
 
 
-// describe('sum = a+b ', () => {
-//     it('sum is a+b', () => {
-//         const wrapper= shallow(<Sum />)
-//         const inp =wrapper.find('input')
-//         expect (inp.number()).toBe(number)
-//     })
+describe('sum = a+b' , () => {
+    it('sum is a+b', () => {
+        expect(Sum(1,2)).toBe(3);
+    });
 
-// })
+})
