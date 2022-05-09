@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ok 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    -
+  </button>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      name="number"
+      onChange={[Function]}
+      placeholder="number"
+      type="number"
+    />
+    <button
+      type="submit"
+      value="Submit"
+    >
+      Zmień
+    </button>
+  </form>
+  <h4>
+    stan licznika: 
+    0
+  </h4>
+  <button
+    onClick={[Function]}
+  >
+    Reset
+  </button>
+</div>
+`;
