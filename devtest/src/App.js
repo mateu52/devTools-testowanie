@@ -3,8 +3,8 @@ import './App.css';
 //import PropTypes from 'prop-types'
 import ErrorBund from "./ErrorBund";
 //import renderer from 'react-test-renderer';
-import Sum from './components/Sum';
-
+//import Sum from './components/Sum';
+import Zadtwo from './components/zad2';
 
 
 function App() {
@@ -12,9 +12,10 @@ function App() {
   
   return (
     <div className="App">
-    <ErrorBund>
-      <Sum />
-    </ErrorBund>
+     <ErrorBund>
+      {/* <Sum /> */}
+      <Zadtwo />
+     </ErrorBund> 
     </div>
   );
 }
