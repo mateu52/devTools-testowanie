@@ -8,3 +8,8 @@ it('renders ok', () => {
         .toJSON();
     expect(tree).toMatchSnapshot();
 })
+it('click + = +1', () => {
+    const result = Zadtwo(){
+        
+    }
+})
