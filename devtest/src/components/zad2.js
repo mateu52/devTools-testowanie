@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
+import PropTypes from "prop-types";
 
-function Zadtwo(){
+
+function Zadtwo({numdef}){
     
-    const [sum, setSum ]=useState(0);
+    const [sum, setSum ]=useState(numdef);
     const [inp, setInp ] = useState(0);
     const hPlus = () => {
         setSum(sum+1);
@@ -36,7 +38,15 @@ function Zadtwo(){
             <h4>stan licznika: {sum}</h4>
 
             <button  onClick={hReset}>Reset</button>
-        </div>
+            <h3>{numdef}</h3>
+            </div>
     )
 }
+Zadtwo.propTypes={
+    numdef:PropTypes.number
+}
+ Zadtwo.defaultProps ={
+    numdef: 10
+}
+
 export default Zadtwo;
